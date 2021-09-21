@@ -2,10 +2,19 @@ import java.util.Scanner;
 
 public class while_demo {
     public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
+        // 1. Создание переменной
+        // 2. Использование
 
-        int a = sc.nextInt();
-        int b = sc.nextInt();
+        int a = 0;
+
+        a = 10;
+
+
+
+//        Scanner sc = new Scanner(System.in);
+//
+//        int a = sc.nextInt();
+//        int b = sc.nextInt();
 
 //        int count = 0;
 //        while(a >= b) {
@@ -19,12 +28,12 @@ public class while_demo {
         //      НОД(a, b) = НОД(b, a % b)
 
         // do <statement> while(<cond>);
-        do {
-            int r = a % b;
-            a = b;
-            b = r;
-        } while(b != 0);
-        System.out.println(a);
+//        do {
+//            int r = a % b;
+//            a = b;
+//            b = r;
+//        } while(b != 0);
+//        System.out.println(a);
 
 //        System.out.println("Частное " + count);
 //        System.out.println("Остаток " + a);
