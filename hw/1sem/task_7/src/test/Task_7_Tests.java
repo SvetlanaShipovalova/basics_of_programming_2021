@@ -191,7 +191,7 @@ public class Task_7_Tests {
         Vector2 res = direction.move(start, distance);
 
         return switch (direction) {
-            case west -> Math.abs(res.getX() + 3.8) < .0001 && Math.abs(res.getY() - 4.5) < .0001;
+            case West -> Math.abs(res.getX() + 3.8) < .0001 && Math.abs(res.getY() - 4.5) < .0001;
             case East -> Math.abs(res.getX() - 8.8) < .0001 && Math.abs(res.getY() - 4.5) < .0001;
             case North -> Math.abs(res.getX() - 2.5) < .0001 && Math.abs(res.getY() + 1.8) < .0001;
             case South -> Math.abs(res.getX() - 2.5) < .0001 && Math.abs(res.getY() - 10.8) < .0001;
