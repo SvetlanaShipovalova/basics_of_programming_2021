@@ -10,6 +10,7 @@ public class LabyrinthBuilder {
             reader = new InputStreamReader(new FileInputStream(levelName + "/labyrinth"));
             Scanner sc = new Scanner(reader);
             int lines = sc.nextInt();
+            sc.nextLine();
             String wall = sc.nextLine();
             String floor = sc.nextLine();
             String exit = sc.nextLine();

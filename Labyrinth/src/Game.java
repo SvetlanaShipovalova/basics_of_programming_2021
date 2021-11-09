@@ -27,7 +27,7 @@ public class Game {
             case "w" -> person.moveUp();
             case "s" -> person.moveDown();
             case "a" -> person.moveLeft();
-            case "r" -> person.moveRight();
+            case "d" -> person.moveRight();
         }
     }
 

@@ -25,6 +25,6 @@ public class Labyrinth {
     }
 
     public boolean isWalkable(int x, int y) {
-        return y >= 0 && y < cells.length && x >= 0 && x < cells[y].length && cells[y][x] == floor;
+        return y >= 0 && y < cells.length && x >= 0 && x < cells[y].length && (cells[y][x] == floor || cells[y][x] == exit);
     }
 }
