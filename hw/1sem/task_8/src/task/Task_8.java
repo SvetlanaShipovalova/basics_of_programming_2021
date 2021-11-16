@@ -23,7 +23,8 @@ public class Task_8 {
         *       int maxArmor()                  - возвращает максимальное значение брони
         *       void setMaxArmor(int value)     - делает значение максимальной брони равным value
         *
-        *       void specialAbility(BattleUnit other)   - применяет спец-способность к объекту other
+        *       void specialAbility(BattleUnit[] ownTeam, BattleUnit[] enemyTeam)
+        *           - применяет спец-способность к объекту other
         *       void attack(BattleUnit other)           - применяет атаку к объекту other
         * ------------------------------------------------------------------------------------------
         */
