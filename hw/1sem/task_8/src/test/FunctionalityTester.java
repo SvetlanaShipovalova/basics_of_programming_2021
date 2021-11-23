@@ -19,9 +19,6 @@ public class FunctionalityTester {
         protocol = new StringBuilder();
     }
 
-    private BattleUnit[] redTeam;
-    private BattleUnit[] blueTeam;
-
     public String getProtocol() {
         return protocol.toString();
     }
@@ -282,12 +279,4 @@ public class FunctionalityTester {
         return allOk;
     }
     */
-
-    //Раскомментируйте следующие методы, если сделали подзадачу 6
-    private boolean testGameSimulation() {
-        return false;
-    }
-    private void buildTeams() {
-
-    }
 }
