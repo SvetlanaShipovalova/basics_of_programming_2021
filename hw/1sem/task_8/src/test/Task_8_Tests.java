@@ -10,8 +10,8 @@ public class Task_8_Tests {
     private static Task_8 task_8;
     private static String[] subtaskNames;
     private static String[] classNames;
+    private static String[] testNames;
     private static Supplier[] tasks;
-    private static Supplier[] testers;
     private static ClassValidatorBuilder classValidatorBuilder;
     private static StringBuilder protocol;
 
@@ -24,8 +24,8 @@ public class Task_8_Tests {
         protocol = new StringBuilder();
         subtaskNames = getSubtasks();
         classNames = getClassNames();
+        testNames = getTestNames();
         tasks = getTasks();
-        testers = getTesters();
         classValidatorBuilder = new ClassValidatorBuilder("descriptors");
 
         for(int i = 0; i < subtaskNames.length; ++i) {
@@ -60,6 +60,16 @@ public class Task_8_Tests {
             "GameSimulation"
         };
     }
+    private static String[] getTestNames() {
+        return new String[] {
+            "task.BattleUnit",
+            "task.BattleUnitBase",
+            "task.Infantryman",
+            "task.ArmorDestroyer",
+            "task.Alchemist",
+            "task.GameSimulation"
+        };
+    }
 
     private static Supplier[] getTasks() {
         return new Supplier[] {
@@ -71,20 +81,10 @@ public class Task_8_Tests {
             () -> task_8.subtask_6_DynamicPolymorphismProgramming(),
         };
     }
-    private static Supplier[] getTesters() {
-        return new Supplier[] {
-            Task_8_Tests::testTask1Functionality,
-            Task_8_Tests::testTask2Functionality,
-            Task_8_Tests::testTask3Functionality,
-            Task_8_Tests::testTask4Functionality,
-            Task_8_Tests::testTask5Functionality,
-            Task_8_Tests::testTask6Functionality,
-        };
-    }
 
     private static boolean testSubtask(int number) {
-        protocol.append("Тестирование подзадачи ").append(number).append("...\n");
-        var res = testTask(tasks[number], testers[number], number);
+        protocol.append("Тестирование подзадачи ").append(number + 1).append("...\n");
+        var res = testTask(tasks[number], testNames[number], number);
         if (res)
             protocol.append("OK\n");
         else
@@ -95,7 +95,7 @@ public class Task_8_Tests {
 
     private static boolean testTask(
         Supplier<Class<?>> task,
-        Supplier<Boolean> testFunctionality,
+        String testName,
         int taskNum) {
         var validator = classValidatorBuilder.build(classNames[taskNum]);
         var type = task.get();
@@ -124,28 +124,12 @@ public class Task_8_Tests {
             protocol.append("Ошибка в конструкторах\n");
             cTests = false;
         }
-        boolean rTests = testFunctionality.get();
+        if(testName == null)
+            return cTests;
 
+        var tester = new FunctionalityTester("tests");
+        boolean rTests = tester.testClass(testName);
+        protocol.append(tester.getProtocol());
         return cTests && rTests;
     }
-
-    private static boolean testTask1Functionality() {
-        return true;
-    }
-    private static boolean testTask2Functionality() {
-        return true;
-    }
-    private static boolean testTask3Functionality() {
-        return true;
-    }
-    private static boolean testTask4Functionality() {
-        return true;
-    }
-    private static boolean testTask5Functionality() {
-        return true;
-    }
-    private static boolean testTask6Functionality() {
-        return true;
-    }
-
 }

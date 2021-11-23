@@ -1,7 +1,7 @@
 package task;
 
 public class Task_8 {
-    public Class<BattleUnit> subtask_1_DynamicPolymorphismProgramming() {
+    public Class<?> subtask_1_DynamicPolymorphismProgramming() {
         /*
         *   Создать в пакете task интерфейс согласно описанию:
         * -------------------------------------------------------------------------------------------
@@ -29,10 +29,14 @@ public class Task_8 {
         * ------------------------------------------------------------------------------------------
         */
 
-        return BattleUnit.class;
+        try {
+            return Class.forName("task.BattleUnit");
+        } catch (ClassNotFoundException e) {
+            return null;
+        }
     }
 
-    public Class<BattleUnitBase> subtask_2_DynamicPolymorphismProgramming() {
+    public Class<?> subtask_2_DynamicPolymorphismProgramming() {
         /*
          *   Создать в пакете task абстрактный класс согласно описанию:
          * ---------------------------------------------------------------------
@@ -54,9 +58,13 @@ public class Task_8 {
          * ---------------------------------------------------------------------
          */
 
-        return BattleUnitBase.class;
+        try {
+            return Class.forName("task.BattleUnitBase");
+        } catch (ClassNotFoundException e) {
+            return null;
+        }
     }
-    public Class<Infantryman> subtask_3_DynamicPolymorphismProgramming() {
+    public Class<?> subtask_3_DynamicPolymorphismProgramming() {
         /*
          *   Создать в пакете task класс согласно описанию:
          * ---------------------------------------------------------------------
@@ -78,10 +86,13 @@ public class Task_8 {
          *       - минимальные повреждения любого типа - 1
          * ---------------------------------------------------------------------
          */
-
-        return Infantryman.class;
+        try {
+            return Class.forName("task.Infantryman");
+        } catch (ClassNotFoundException e) {
+            return null;
+        }
     }
-    public Class<ArmorDestroyer> subtask_4_DynamicPolymorphismProgramming() {
+    public Class<?> subtask_4_DynamicPolymorphismProgramming() {
         /*
          *   Создать в пакете task класс согласно описанию:
          * ---------------------------------------------------------------------
@@ -106,9 +117,13 @@ public class Task_8 {
          * ---------------------------------------------------------------------
          */
 
-        return ArmorDestroyer.class;
+        try {
+            return Class.forName("task.ArmorDestroyer");
+        } catch (ClassNotFoundException e) {
+            return null;
+        }
     }
-    public Class<Alchemist> subtask_5_DynamicPolymorphismProgramming() {
+    public Class<?> subtask_5_DynamicPolymorphismProgramming() {
         /*
          *   Создать в пакете task класс согласно описанию:
          * ---------------------------------------------------------------------
@@ -129,9 +144,13 @@ public class Task_8 {
          * ---------------------------------------------------------------------
          */
 
-        return Alchemist.class;
+        try {
+            return Class.forName("task.Alchemist");
+        } catch (ClassNotFoundException e) {
+            return null;
+        }
     }
-    public Class<GameSimulation> subtask_6_DynamicPolymorphismProgramming() {
+    public Class<?> subtask_6_DynamicPolymorphismProgramming() {
         /*
          *   Создать в пакете task класс согласно описанию:
          * ---------------------------------------------------------------------
@@ -193,7 +212,11 @@ public class Task_8 {
          * ---------------------------------------------------------------------
          */
 
-        return GameSimulation.class;
+        try {
+            return Class.forName("task.GameSimulation");
+        } catch (ClassNotFoundException e) {
+            return null;
+        }
     }
 
 
