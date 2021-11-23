@@ -18,7 +18,7 @@ public class Task_8_Tests {
     public static void test(Task_8 task, String name) {
         task_8 = task;
         double[] scores_per_task = {
-                1, 1, 1, 1, 1, 3
+                1, 1, 2, 2, 2
         };
         double score = 0;
         protocol = new StringBuilder();
@@ -46,8 +46,7 @@ public class Task_8_Tests {
             "subtask_2_DynamicPolymorphismProgramming",
             "subtask_3_DynamicPolymorphismProgramming",
             "subtask_4_DynamicPolymorphismProgramming",
-            "subtask_5_DynamicPolymorphismProgramming",
-            "subtask_6_DynamicPolymorphismProgramming"
+            "subtask_5_DynamicPolymorphismProgramming"
         };
     }
     private static String[] getClassNames() {
@@ -56,8 +55,7 @@ public class Task_8_Tests {
             "BattleUnitBase",
             "Infantryman",
             "ArmorDestroyer",
-            "Alchemist",
-            "GameSimulation"
+            "Alchemist"
         };
     }
     private static String[] getTestNames() {
@@ -66,8 +64,7 @@ public class Task_8_Tests {
             "task.BattleUnitBase",
             "task.Infantryman",
             "task.ArmorDestroyer",
-            "task.Alchemist",
-            "task.GameSimulation"
+            "task.Alchemist"
         };
     }
 
@@ -77,8 +74,7 @@ public class Task_8_Tests {
             () -> task_8.subtask_2_DynamicPolymorphismProgramming(),
             () -> task_8.subtask_3_DynamicPolymorphismProgramming(),
             () -> task_8.subtask_4_DynamicPolymorphismProgramming(),
-            () -> task_8.subtask_5_DynamicPolymorphismProgramming(),
-            () -> task_8.subtask_6_DynamicPolymorphismProgramming(),
+            () -> task_8.subtask_5_DynamicPolymorphismProgramming()
         };
     }
 
@@ -99,6 +95,8 @@ public class Task_8_Tests {
         int taskNum) {
         var validator = classValidatorBuilder.build(classNames[taskNum]);
         var type = task.get();
+        if(type == null)
+            return false;
         boolean cTests = true;
         if(!validator.validateAbstractMethods(type)) {
             protocol.append("Ошибка в списке абстрактных методов\n");
