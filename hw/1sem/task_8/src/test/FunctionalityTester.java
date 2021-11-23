@@ -39,8 +39,6 @@ public class FunctionalityTester {
             //Раскомментируйте строку ниже, если сделали подзадачу 5
             //case "task.Alchemist" -> testAlchemist();
 
-            //Раскомментируйте строку ниже, если сделали подзадачу 6
-            //case "task.GameSimulation" -> testGameSimulation();
             default -> false;
         };
     }
