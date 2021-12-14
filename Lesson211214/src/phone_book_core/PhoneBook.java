@@ -10,6 +10,8 @@ public class PhoneBook {
     public void addContact(String name, String phone) {
         if(name == null)
             throw new IllegalArgumentException("Name can not be null");
+        if(phone == null)
+            throw new IllegalArgumentException("Phone can not be null");
         contactsCount++;
     }
 
