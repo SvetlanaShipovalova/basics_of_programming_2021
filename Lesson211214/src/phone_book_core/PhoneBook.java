@@ -10,7 +10,6 @@ public class PhoneBook {
         data = new HashMap<>();
     }
 
-
     public void addContact(String name, String phone) {
         StringBuilder error = new StringBuilder();
         if(name == null)
