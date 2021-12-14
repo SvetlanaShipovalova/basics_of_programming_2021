@@ -1,12 +1,13 @@
 package phone_book_core;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class PhoneBook {
-    private int contactsCount;
+    private HashMap<String, List<String>> data;
     private PhoneBook() {
-        contactsCount = 0;
+        data = new HashMap<>();
     }
 
 
@@ -19,11 +20,14 @@ public class PhoneBook {
         if(!error.isEmpty())
             throw new IllegalArgumentException(error.toString());
 
-        contactsCount++;
+        if(!data.containsKey(name)) {
+            data.put(name, new ArrayList<>());
+        }
+        data.get(name).add(phone);
     }
 
     public int getContactsCount() {
-        return contactsCount;
+        return data.size();
     }
 
     public static PhoneBook create() {
@@ -31,8 +35,6 @@ public class PhoneBook {
     }
 
     public List<String> getPhonesForName(String name) {
-        List<String> res = new ArrayList<>();
-        res.add("phone1");
-        return res;
+        return new ArrayList<>(data.get(name));
     }
 }
