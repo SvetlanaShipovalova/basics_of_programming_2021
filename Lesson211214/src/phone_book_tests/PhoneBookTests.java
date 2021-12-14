@@ -39,7 +39,7 @@ public class PhoneBookTests extends Assert {
     }
 
     @Test
-    public void getContact_getContactByName_returnListOfPhones() {
+    public void getContact_getContactByNameWithOnePhone_returnListOfPhones() {
         PhoneBook phoneBook = PhoneBook.create();
         phoneBook.addContact("name1", "phone1");
         phoneBook.addContact("name2", "phone2");
@@ -47,5 +47,17 @@ public class PhoneBookTests extends Assert {
         List<String> phones = phoneBook.getPhonesForName("name1");
         assertTrue(phones.contains("phone1"));
         assertEquals(1, phones.size());
+    }
+    @Test
+    public void getContact_getContactByNameWithThreePhones_returnListOfPhones() {
+        PhoneBook phoneBook = PhoneBook.create();
+        phoneBook.addContact("name1", "phone1");
+        phoneBook.addContact("name1", "phone2");
+        phoneBook.addContact("name1", "phone3");
+        List<String> phones = phoneBook.getPhonesForName("name1");
+        assertTrue(phones.contains("phone1"));
+        assertTrue(phones.contains("phone2"));
+        assertTrue(phones.contains("phone3"));
+        assertEquals(3, phones.size());
     }
 }
