@@ -1,5 +1,8 @@
 package phone_book_core;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PhoneBook {
     private int contactsCount;
     private PhoneBook() {
@@ -25,5 +28,11 @@ public class PhoneBook {
 
     public static PhoneBook create() {
         return new PhoneBook();
+    }
+
+    public List<String> getPhonesForName(String name) {
+        List<String> res = new ArrayList<>();
+        res.add("phone1");
+        return res;
     }
 }
