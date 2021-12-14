@@ -1,8 +1,11 @@
 package phone_book_core;
 
+import phone_book_core.service.*;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 public class PhoneBook {
     private HashMap<String, List<String>> data;
@@ -11,13 +14,10 @@ public class PhoneBook {
     }
 
     public void addContact(String name, String phone) {
-        StringBuilder error = new StringBuilder();
-        if(name == null)
-            error.append("Name can not be null\n");
-        if(phone == null)
-            error.append("Phone can not be null\n");
-        if(!error.isEmpty())
-            throw new IllegalArgumentException(error.toString());
+        new ArgumentErrorChecker()
+            .addCheck(name, "Name can not be null", Objects::isNull)
+            .addCheck(phone, "Phone can not be null", Objects::isNull)
+            .check();
 
         if(!data.containsKey(name)) {
             data.put(name, new ArrayList<>());
@@ -34,11 +34,9 @@ public class PhoneBook {
     }
 
     public List<String> getPhonesForName(String name) {
-        StringBuilder error = new StringBuilder();
-        if(name == null)
-            error.append("Name can not be null\n");
-        if(!error.isEmpty())
-            throw new IllegalArgumentException(error.toString());
+        new ArgumentErrorChecker()
+            .addCheck(name, "Name can not be null", Objects::isNull)
+            .check();
 
         if(!data.containsKey(name))
             return new ArrayList<>();
