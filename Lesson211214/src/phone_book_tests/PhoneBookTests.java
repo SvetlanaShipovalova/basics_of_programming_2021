@@ -57,4 +57,14 @@ public class PhoneBookTests extends Assert {
         List<String> phones = phoneBook.getPhonesForName("name3");
         assertEquals(0, phones.size());
     }
+    @Test
+    public void getPhonesForName_getPhonesWithNullName_throwsException() {
+        PhoneBook phoneBook = PhoneBook.create();
+        phoneBook.addContact("name1", "phone1");
+        phoneBook.addContact("name1", "phone2");
+        phoneBook.addContact("name2", "phone3");
+
+        var exc = assertThrows(IllegalArgumentException.class, () -> phoneBook.getPhonesForName(null));
+        assertTrue(exc.getMessage().toLowerCase().contains("name can not be null"));
+    }
 }
