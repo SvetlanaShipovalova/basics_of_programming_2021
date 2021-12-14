@@ -35,6 +35,8 @@ public class PhoneBook {
     }
 
     public List<String> getPhonesForName(String name) {
+        if(!data.containsKey(name))
+            return new ArrayList<>();
         return new ArrayList<>(data.get(name));
     }
 }
