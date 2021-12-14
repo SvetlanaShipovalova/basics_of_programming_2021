@@ -35,6 +35,12 @@ public class PhoneBook {
     }
 
     public List<String> getPhonesForName(String name) {
+        StringBuilder error = new StringBuilder();
+        if(name == null)
+            error.append("Name can not be null\n");
+        if(!error.isEmpty())
+            throw new IllegalArgumentException(error.toString());
+
         if(!data.containsKey(name))
             return new ArrayList<>();
         return new ArrayList<>(data.get(name));
