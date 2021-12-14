@@ -1,6 +1,7 @@
 package phone_book_tests;
 
 import org.junit.*;
+import phone_book_core.*;
 
 public class PhoneBookTests extends Assert {
     @Test
