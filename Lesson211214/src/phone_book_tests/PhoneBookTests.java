@@ -9,4 +9,11 @@ public class PhoneBookTests extends Assert {
         PhoneBook phoneBook = PhoneBook.create();
         assertEquals(0, phoneBook.getContactsCount());
     }
+
+    @Test
+    public void addContact_AddContactWithNameAndPhone_ContactsCountEqualsOne() {
+        PhoneBook phoneBook = PhoneBook.create();
+        phoneBook.addContact("name", "phone");
+        assertEquals(1, phoneBook.getContactsCount());
+    }
 }
