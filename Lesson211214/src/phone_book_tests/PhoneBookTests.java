@@ -16,4 +16,11 @@ public class PhoneBookTests extends Assert {
         phoneBook.addContact("name", "phone");
         assertEquals(1, phoneBook.getContactsCount());
     }
+
+    @Test
+    public void addContact_AddContactWithNullName_ThrowsException() {
+        PhoneBook phoneBook = PhoneBook.create();
+        var exc = assertThrows(IllegalArgumentException.class, () -> phoneBook.addContact(null, "phone"));
+        assertTrue(exc.getMessage().toLowerCase().contains("name can not be null"));
+    }
 }
